@@ -1,5 +1,6 @@
 body {
-  width: 900px;
+  max-width: 450px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
@@ -37,10 +38,10 @@ header {
   position: fixed;
   background-color: #D5FFD1;
   height: 50px;
+  max-width: 410px;
   width: 100%;
-  top: 0;
-  right: 0;
-  left: 0;
+  inset: 0;
+  margin: 0 auto;
 }
 
 h1 {
@@ -52,7 +53,7 @@ h1 {
   z-index: 100;
   position: absolute;
   top: 5px;
-  right: 13%;
+  right: -50px;
   width: 95px;
   height: 100%;
 }
@@ -139,7 +140,8 @@ h1 {
 }
 
 #loginform {
-  width: 400px;
+  max-width: 410px;
+  width: 100%;
   margin: 0 auto;
   font-size: 16px;
 }
@@ -163,7 +165,8 @@ h1 {
 }
 
 #userform {
-  width: 400px;
+  max-width: 410px;
+  width: 100%;
   margin: 0 auto;
   font-size: 16px;
 }
@@ -198,6 +201,8 @@ h1 {
 }
 
 .board-post {
+  max-width: 410px;
+  width: 100%;
   margin: 0 auto 20px auto;
   background-color: #D9D9D9;
   padding: 1%;
@@ -224,7 +229,7 @@ h1 {
 }
 
 .board-form {
-  max-width: 860px;
+  max-width: 410px;
   width: 100%;
   margin: 0 auto 20px auto;
   font-size: 16px;
@@ -235,18 +240,18 @@ h1 {
   line-height: 30px;
 }
 .board-form table tr th {
-  width: 20%;
+  width: 10%;
   text-align: left;
   vertical-align: top;
 }
 .board-form table tr td {
-  width: 80%;
+  width: 90%;
 }
 .board-form table tr td textarea {
   resize: auto;
   max-width: 800px;
   min-width: 100px;
-  width: 800px;
+  width: 100%;
   border: 1px solid #000;
   background-color: #fff;
 }

@@ -13,9 +13,4 @@ document.addEventListener('DOMContentLoaded', function () {
             headNav.classList.add('is-active')
         }
     });
-
-    headNav.addEventListener('click', () => {
-        hamburger.classList.remove('is-active');
-        headNav.classList.remove('is-active')
-    });
 });
