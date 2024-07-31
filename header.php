@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -21,7 +22,6 @@
         <!-- ハンバーガーメニュー部分ここまで -->
         <!-- ナビのメニュー -->
         <nav class="p-header__nav p-nav" id="js-nav">
-            <?php session_start(); ?>
             <?php
             if(isset($_SESSION['user'])) {
                 echo '<p>'.$_SESSION['user']['hundle_name'].'さん</p>';

@@ -189,6 +189,7 @@ h1 {
 }
 
 .userresult {
+  padding-top: 75px;
   text-align: center;
 }
 
@@ -260,9 +261,11 @@ h1 {
 }
 
 .boardresult {
+  padding-top: 75px;
   text-align: center;
 }
 
 .delete-result {
+  padding-top: 75px;
   text-align: center;
 }/*# sourceMappingURL=base.css.map */

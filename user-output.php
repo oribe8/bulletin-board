@@ -13,6 +13,7 @@ if(isset($_SESSION['user'])) {
 }
 if(empty($sql->fetchAll())) {
     if(isset($_SESSION['user'])) {
+        $url = "'bulletin-board.php'";
         $sql = $pdo->prepare('UPDATE user SET email = ?,password = ? WHERE user_id=?');
         $sql -> execute([$_REQUEST['email'],$_REQUEST['password'],$id]);
         foreach($sql as $row) {
@@ -30,7 +31,7 @@ if(empty($sql->fetchAll())) {
         }
         echo '<div class="userresult">';
         echo '<p>更新完了しました。</p>';
-        echo '<button>掲示板へ</button>';
+        echo '<button onclick="location.href='.$url.'">掲示板へ</button>';
         echo '</div>';
     } else {
         $url = "'login.php'";
