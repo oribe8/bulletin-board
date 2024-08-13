@@ -86,11 +86,22 @@ h1 {
 .c-hamburger span:nth-of-type(3) {
   top: 5px;
 }
+.c-hamburger.is-active span:nth-of-type(1) {
+  top: 0;
+  transform: translateX(-50%) rotate(45deg);
+}
+.c-hamburger.is-active span:nth-of-type(2) {
+  opacity: 0;
+}
+.c-hamburger.is-active span:nth-of-type(3) {
+  top: -4px;
+  transform: translateX(-50%) rotate(-45deg);
+}
 
 .p-header__nav {
   display: flex;
   z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: -100%;
   flex-direction: column;

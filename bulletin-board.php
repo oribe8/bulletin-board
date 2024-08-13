@@ -3,7 +3,7 @@
 if(isset($_REQUEST['content'])) {
     $pdo = new PDO('mysql:host=localhost;dbname=keijiban;charset=utf8','staff2','password');
     $sql = $pdo -> prepare('INSERT INTO post VALUES(null,?,?,NOW(),0)');
-    $sql -> execute([$_REQUEST['user_id'],$_REQUEST['content']]);
+    $sql -> execute([$_REQUEST['user_id'],htmlspecialchars($_REQUEST['content'])]);
 }
 
 //postテーブルに投稿が存在するか確認

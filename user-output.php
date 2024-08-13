@@ -6,16 +6,16 @@ $pdo = new PDO('mysql:host=localhost;dbname=keijiban;charset=utf8','staff2','pas
 if(isset($_SESSION['user'])) {
     $id = $_SESSION['user']['user_id'];
     $sql = $pdo -> prepare('SELECT * FROM user AS t1 INNER JOIN hundle AS t2 ON t1.user_id = t2.user_id WHERE t1.user_id!=? AND t2.hundle_name=?');
-    $sql -> execute([$id,$_REQUEST['hundle_name']]);
+    $sql -> execute([$id,htmlspecialchars($_REQUEST['hundle_name'])]);
 } else {
     $sql = $pdo -> prepare('SELECT * FROM hundle WHERE hundle_name=?');
-    $sql -> execute([$_REQUEST['hundle_name']]);
+    $sql -> execute([htmlspecialchars($_REQUEST['hundle_name'])]);
 }
 if(empty($sql->fetchAll())) {
     if(isset($_SESSION['user'])) {
         $url = "'bulletin-board.php'";
         $sql = $pdo->prepare('UPDATE user SET email = ?,password = ? WHERE user_id=?');
-        $sql -> execute([$_REQUEST['email'],$_REQUEST['password'],$id]);
+        $sql -> execute([htmlspecialchars($_REQUEST['email']),htmlspecialchars($_REQUEST['password']),$id]);
         foreach($sql as $row) {
             $_SESSION['user'] = [
                 'email' => $row['email'],
@@ -23,7 +23,7 @@ if(empty($sql->fetchAll())) {
             ];
         }
         $sql = $pdo->prepare('UPDATE hundle SET hundle_name =? WHERE user_id=?');
-        $sql -> execute([$_REQUEST['hundle_name'],$id]);
+        $sql -> execute([htmlspecialchars($_REQUEST['hundle_name']),$id]);
         foreach($sql as $row) {
             $_SESSION['user'] = [
                 'hundle_name' => $row['hundle_name']
@@ -36,9 +36,9 @@ if(empty($sql->fetchAll())) {
     } else {
         $url = "'login.php'";
         $sql = $pdo->prepare('INSERT INTO user VALUES(null,?,?)');
-        $sql -> execute([$_REQUEST['email'],$_REQUEST['password']]);
+        $sql -> execute([htmlspecialchars($_REQUEST['email']),htmlspecialchars($_REQUEST['password'])]);
         $sql = $pdo->prepare('INSERT INTO hundle VALUES(null,?)');
-        $sql -> execute([$_REQUEST['hundle_name']]);
+        $sql -> execute([htmlspecialchars($_REQUEST['hundle_name'])]);
         echo '<div class="userresult">';
         echo '<p>新規登録完了しました。</p>';
         echo '<p>ログインをお願いします。</p>';

@@ -7,7 +7,7 @@ $sqlStr .= ' INNER JOIN hundle AS t2';
 $sqlStr .= ' ON t1.user_id = t2.user_id';
 $sqlStr .= ' WHERE t1.email = ? AND t1.password = ?';
 $sql = $pdo -> prepare($sqlStr);
-$sql -> execute([$_REQUEST['email'],$_REQUEST['password']]);
+$sql -> execute([htmlspecialchars($_REQUEST['email']),htmlspecialchars($_REQUEST['password'])]);
 foreach ($sql as $row) {
     $_SESSION['user'] = [
         'user_id' => $row['user_id'],

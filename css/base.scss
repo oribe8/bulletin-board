@@ -90,12 +90,27 @@ h1 {
             top: 5px;
         }
     }
+    &.is-active {
+        span {
+            &:nth-of-type(1) {
+                top: 0;
+                transform: translateX(-50%) rotate(45deg);
+            }
+            &:nth-of-type(2) {
+                opacity: 0;
+            }
+            &:nth-of-type(3) {
+                top: -4px;
+                transform: translateX(-50%) rotate(-45deg);
+            }
+        }
+    }
 }
 
 .p-header__nav {
     display: flex;
     z-index: 10;
-    position: absolute;
+    position: fixed; //変更
     top: 0;
     right: -100%;
     flex-direction: column;
