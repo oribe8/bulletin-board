@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<!-- 上記の位置にsession_startがないと、webサーバーに上げたときにエラーになる -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -34,7 +35,8 @@
         <!-- ナビのメニュー -->
         <nav class="p-header__nav p-nav" id="js-nav">
             <?php
-            if(isset($_SESSION['user'])) {
+            if(isset($_SESSION['user'])) { //userセッションにデータが存在する場合はtrue
+                //userセッションが存在するときのナビメニュー
                 echo '<p>'.$_SESSION['user']['hundle_name'].'さん</p>';
                 echo '<div class="p-nav__inner">';
                 echo '<ul class="p-nav__list">';
@@ -50,6 +52,7 @@
                 echo '</ul>';
                 echo '</div>';
             } else {
+                //userセッションが存在しないときのナビメニュー
                 echo '<div class="p-nav__inner">';
                 echo '<ul class="p-nav__list">';
                 echo '<li class="p-nav__item">';
